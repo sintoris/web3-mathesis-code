@@ -1,0 +1,10 @@
+{{#if books}}
+<ul>
+    {{#each books}}
+    <li>{{this.title}} - {{this.author}}</li>
+    {{/each}}
+</ul>
+{{/if}}
+{{#unless books}}
+<p>Δεν υπάρχουν καταχωρημένα βιβλία</p>
+{{/unless}}

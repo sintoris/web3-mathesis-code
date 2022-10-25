@@ -1,0 +1,50 @@
+<div class="row mt-5">
+    <div class="col-12">
+        <h2>τα βιβλία μου {{#if books}} - ({{books.length}}) {{/if}}</h2>
+        {{#if books}}
+    </div>
+</div>
+<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Τίτλος</th>
+                <th>Συγγραφέας</th>
+                <th class="d-print-none">
+                    <a class="btn btn-sm btn-success" href="/addbookform">Προσθήκη</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each books}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>{{this.author}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="/delete/{{this.title}}">Διαγραφή</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{/if}}
+{{#unless books}}
+    <div class="row mt-5">
+        <div class="col"> Δεν υπάρχει κανένα βιβλίο στο myBooks </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <a class="btn btn-sm btn-success" href="/addbookform">Προσθήκη</a>
+        </div>
+    </div>
+{{/unless}}
+{{#if error}}
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <div class="alert alert-primary" role="alert">
+                {{error}}
+            </div>
+        </div>
+    </div>
+{{/if}}

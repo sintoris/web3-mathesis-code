@@ -1,0 +1,58 @@
+<form action="/doregister" method="post">
+    <div class="row mt-5">
+        <div class="col-8 offset-2">
+            <h2 class="text-center">Εγγραφή</h2>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-6 offset-3">
+            <div class="form-floating">
+                <input type="text" class="form-control {{#if message.username}} is-invalid {{/if}}"
+                    value="{{username}}" name="username" id="form-username" placeholder="Όνομα χρήστη"
+                    required="required" autofocus>
+                <label class="form-label" for="form-username">Όνομα χρήστη</label>
+                <div class="invalid-feedback">{{message.username.msg}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 offset-3">
+            <div class="form-floating">
+                <input type="password" class="form-control {{#if message.password}} is-invalid {{/if}}" value=""
+                    name="password" id="password" placeholder="Συνθηματικό" required="required">
+                <label class="form-label" for="password">Συνθηματικό</label>
+                <div class="invalid-feedback">{{message.password.msg}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 offset-3">
+            <div class="form-floating">
+                <input type="password" class="form-control {{#if message.password-confirm}} is-invalid {{/if}}" value=""
+                    name="password-confirm" id="password-confirm" placeholder="Επιβεβαίωση συνθηματικού"
+                    required="required">
+                <label class="form-label" for="password">Επιβεβαίωση συνθηματικού</label>
+                <div class="invalid-feedback">{{message.password-confirm.msg}}</div>
+            </div>
+        </div>
+    </div>
+    {{#if message.username}}
+        <div class="row mt-5">
+            <div class="col-6 offset-3">
+                <div class="alert alert-primary" role="alert">
+                    {{message.username.msg}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <button type="submit" class="btn btn-primary login-btn btn-block w-100">Εγγραφή</button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-6 offset-3 text-center">
+            <a href="/">Είσοδος</a>
+        </div>
+    </div>
+</form>

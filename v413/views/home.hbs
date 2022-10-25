@@ -1,0 +1,48 @@
+<form action="/books" method="post">
+    <div class="row mt-5">
+        <div class="col-8 offset-2">
+            <h2 class="text-center">Δώστε τα στοιχεία πρόσβασής σας...</h2>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-6 offset-3">
+            <div class="form-floating">
+                <input type="text" class="form-control {{#if message.username}} is-invalid {{/if}}"
+                    value="{{message.username.value}}" name="username" id="form-username" placeholder="Όνομα χρήστη"
+                    required="required" autofocus>
+                <label class="form-label" for="form-username">Όνομα χρήστη</label>
+                <div class="invalid-feedback">{{message.username.msg}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 offset-3">
+            <div class="form-floating">
+                <input type="password" class="form-control {{#if message.password}} is-invalid {{/if}}"
+                    value="{{message.password.value}}" name="password" id="password" placeholder="Συνθηματικό"
+                    required="required">
+                <label class="form-label" for="password">Συνθηματικό</label>
+                <div class="invalid-feedback">{{message.username.msg}}</div>
+            </div>
+        </div>
+    </div>
+    {{#if newusermessage}}
+        <div class="row mt-5">
+            <div class="col-6 offset-3">
+                <div class="alert alert-primary" role="alert">
+                    {{newusermessage}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <button type="submit" class="btn btn-primary login-btn btn-block w-100">Είσοδος</button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-6 offset-3 text-center">
+            <a href="/register">Δημιουργία νέου λογαριασμού</a>
+        </div>
+    </div>
+</form>
